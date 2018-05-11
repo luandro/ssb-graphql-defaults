@@ -24,4 +24,4 @@ const Gossip=`
   }
 `
 
-module.exports = [Gossip]
+module.exports = () => [Gossip]

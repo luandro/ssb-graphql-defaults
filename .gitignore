@@ -1,7 +1,6 @@
 .DS_Store
 .history/
 example/node_modules/
-lib/
 # Logs
 logs
 *.log

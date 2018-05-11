@@ -1,50 +1,36 @@
-// const AboutMessage =  require('./ssb/message/about/type')
-// const Channel =  require('./ssb/channel/type')
-// const ChannelMessage =  require('./ssb/message/channel/type')
-// const ContactMessage =  require('./ssb/message/contact/type')
-// const DefaultMessage =  require('./ssb/message/default/type')
-// const Message =  require('./ssb/message/type')
-// const PostMessage =  require('./ssb/message/post/type')
-// const User =  require('./ssb/user/type')
-// const OpenApp =  require('./open-app/type')
-// const Query =  require('./query/type')
-// const Mutation = require('./mutation/type')
-const Subscription =  require('./subscription/type')
-const Gossip = require('./ssb/gossip/type')
+import AboutMessage from './ssb/message/about/type'
+import Channel from './ssb/channel/type'
+import ChannelMessage from './ssb/message/channel/type'
+import ContactMessage from './ssb/message/contact/type'
+import DefaultMessage from './ssb/message/default/type'
+import Message from './ssb/message/type'
+import PostMessage from './ssb/message/post/type'
+import User from './ssb/user/type'
+import Query from './query/type'
+import Mutation from './mutation/type'
+import Subscription from './subscription/type'
+import Gossip from './ssb/gossip/type'
 
-// const Schema = `
-//   schema {
-//     query: Query
-//     mutation: Mutation,
-//     subscription: Subscription
-//   }
-// `
-
-const Schema = `
+const Schema = () => [`
   schema {
+    query: Query
+    mutation: Mutation,
     subscription: Subscription
   }
-`
+`]
 
-module.exports = [
-  Schema,
+export default [
+  AboutMessage,
+  Channel,
+  ChannelMessage,
+  ContactMessage,
+  DefaultMessage,
+  Message,
+  PostMessage,
+  User,
+  Query,
+  Mutation,
   Subscription,
-  Gossip
+  Gossip,
+  Schema,
 ]
-
-// module.exports = [
-//   AboutMessage,
-//   Channel,
-//   ChannelMessage,
-//   ContactMessage,
-//   DefaultMessage,
-//   Message,
-//   PostMessage,
-//   User,
-//   Query,
-//   Schema,
-//   Mutation,
-//   Subscription,
-//   OpenApp,
-//   Gossip
-// ]

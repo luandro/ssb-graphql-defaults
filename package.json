@@ -1,22 +1,27 @@
 {
-  "name": "open-app-defaults-plugin",
+  "name": "ssb-graphql-defaults",
   "version": "1.0.0",
-  "description": "",
+  "description": "Secure Scuttlebot types",
   "main": "index.js",
   "scripts": {
-    "push": "git push --tags ssb master",
-    "lib": "babel schema -d lib",
+    "push": "git push origin master && git push --tags ssb master",
+    "prepublish": "npm run build",
+    "build": "babel schema -d lib",
+    "dev": "babel schema --watch -d lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ssb", "graphql", "open-app"],
+  "author": "Luandro <luandro@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "pull-stream": "^3.6.7"
+    "pull-stream": "^3.6.7",
+    "ssb-ref": "^2.11.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1"
   }
 }
