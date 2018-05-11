@@ -10,10 +10,15 @@
     "dev": "babel schema --watch -d lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["ssb", "graphql", "open-app"],
+  "keywords": [
+    "ssb",
+    "graphql",
+    "open-app"
+  ],
   "author": "Luandro <luandro@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "pull-stream": "^3.6.7",
     "ssb-ref": "^2.11.1"
   },
