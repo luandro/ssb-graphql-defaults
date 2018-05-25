@@ -1,6 +1,7 @@
 const Subscription=`
   type Subscription {
-    gossip(connected: Boolean): Gossip!
+    gossip(connected: Boolean): Gossip
+    history(id: String): PostMessage
   }
 `
 

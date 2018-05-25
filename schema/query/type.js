@@ -1,6 +1,6 @@
 const Query = `
   type Query {
-    connectedPeers: [Peer]
+    channels(id: String!): [Channel]
     history(id: String! sequence: Int): [Message]
     profile(id: String!): User
     whoami: String
