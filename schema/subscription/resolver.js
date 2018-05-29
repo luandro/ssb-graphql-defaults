@@ -1,4 +1,5 @@
 import { getConnectedPeers } from '../ssb/gossip/helpers'
+import { getProgress } from '../ssb/gossip/helpers'
 import { getHistoryStream } from '../ssb/message/helpers';
 
 export default {
@@ -19,5 +20,12 @@ export default {
       getConnectedPeers(sbot, pubsub, channel, connected)
       return pubsub.asyncIterator(channel)
     },
-  }
+  },
+  progress: {
+    subscribe: (parent, args, { pubsub, sbot }) => {
+      const channel = Math.random().toString(36).substring(2, 15) // random channel name
+      getProgress(sbot, pubsub, channel)
+      return pubsub.asyncIterator(channel)
+    },
+  },
 }

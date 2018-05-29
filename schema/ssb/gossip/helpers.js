@@ -6,14 +6,15 @@ export const getConnectedPeers = (sbot, pubsub, channel, connected) => {
   }
   return pull(
     sbot.gossip.changes(),
-    pull.filter(peers => {
-      console.log('peers', peers)
+    pull.filter(change => {
       if (connected) {
-        return peers.type === 'connect'
+        return change.type === 'connect'
       }
-      return peers
+      return change
     }),
     pull.drain(gossip => {
+      console.log('Connected: ', connected)
+      console.log('network change', gossip)
       return pubsub.publish(channel, { gossip })
     })
   )

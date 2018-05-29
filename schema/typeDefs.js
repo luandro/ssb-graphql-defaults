@@ -10,6 +10,7 @@ import Query from './query/type'
 import Mutation from './mutation/type'
 import Subscription from './subscription/type'
 import Gossip from './ssb/gossip/type'
+import Progress from './ssb/progress/type'
 
 const Schema = () => [`
   schema {
@@ -32,5 +33,6 @@ export default [
   Mutation,
   Subscription,
   Gossip,
+  Progress,
   Schema,
 ]
