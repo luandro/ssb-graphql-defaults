@@ -16,10 +16,14 @@
     "open-app"
   ],
   "author": "Luandro <luandro@gmail.com>",
+  "repository": {
+    "url": "https://github.com/luandro/ssb-graphql-defaults"
+  },
   "license": "ISC",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "pull-stream": "^3.6.7",
+    "ssb-helpers": "0.0.1",
     "ssb-ref": "^2.11.1"
   },
   "devDependencies": {

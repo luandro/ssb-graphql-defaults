@@ -1,4 +1,4 @@
-import { publishMessage } from '../ssb/message/helpers';
+import { publishMessage } from 'ssb-helpers'
 
 export default {
   postMessage: (_, { input: { text } }, { sbot }) => publishMessage({ type: 'post', text }, sbot),
@@ -8,7 +8,15 @@ export default {
       type: 'about',
       about: id,
       name,
-      description
+      description,
+      // image: {
+      //   link: fileID,       // required
+      //   width: widthInPx,   // optional, but recommended
+      //   height: heightInPx, // optional, but recommended
+      //   name: fileName,     // optional, but recommended
+      //   size: sizeInBytes,  // optional, but recommended
+      //   type: mimeType      // optional, but recommended
+      // },
     }, sbot)
   },
 }

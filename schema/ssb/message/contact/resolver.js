@@ -1,4 +1,4 @@
-import { getProfile } from '../../user/helpers';
+import { getProfile } from 'ssb-helpers'
 import DefaultMessage from '../default/resolver';
 
 export default {

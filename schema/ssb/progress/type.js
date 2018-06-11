@@ -1,8 +1,15 @@
 const Progress=`
+  type PendingPeer {
+    id: String
+    number: Int
+  }
   type Progress {
-    start: Int
-    current: Int
-    target: Int
+    rate: Int
+    feeds: Int
+    pendingPeers: [PendingPeer]
+    incompleteFeeds: Int
+    progress: Int
+    total: Int
   }
 `
 

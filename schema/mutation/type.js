@@ -3,7 +3,7 @@ const Mutation = `
     text: String
   }
   input aboutInput {
-    id: String
+    id: String!
     name: String
     description: String
   }
