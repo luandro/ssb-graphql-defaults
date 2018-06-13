@@ -19,7 +19,6 @@ export default {
       // },
     }, sbot)
     .then(msg => {
-      console.log('!!', msg)
       return {
         id: msg.value.content.about,
         ...msg.value.content
