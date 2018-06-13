@@ -3,13 +3,12 @@ const Mutation = `
     text: String
   }
   input aboutInput {
-    id: String!
     name: String
     description: String
   }
   type Mutation {
     postMessage(input: postInput): PostMessage
-    aboutMessage(input: aboutInput): User
+    aboutMessage(id: String!, input: aboutInput): User
   }
 `
 module.exports = () => [Mutation]
