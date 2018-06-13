@@ -18,5 +18,12 @@ export default {
       //   type: mimeType      // optional, but recommended
       // },
     }, sbot)
+    .then(msg => {
+      console.log('!!', msg)
+      return {
+        id: msg.value.content.about,
+        ...msg.value.content
+      }
+    })
   },
 }

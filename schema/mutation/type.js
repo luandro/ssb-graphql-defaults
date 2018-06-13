@@ -9,7 +9,7 @@ const Mutation = `
   }
   type Mutation {
     postMessage(input: postInput): PostMessage
-    aboutMessage(input: aboutInput): AboutMessage
+    aboutMessage(input: aboutInput): User
   }
 `
 module.exports = () => [Mutation]
