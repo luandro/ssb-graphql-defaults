@@ -2,8 +2,8 @@ import { publishMessage } from 'ssb-helpers'
 
 export default {
   postMessage: (_, { input: { text } }, { sbot }) => publishMessage({ type: 'post', text }, sbot),
-  aboutMessage: (_, { input}, { sbot }) => {
-    const { id, name, description } = input
+  aboutMessage: (_, { id, input }, { sbot }) => {
+    const { name, description } = input
     return publishMessage({
       type: 'about',
       about: id,
