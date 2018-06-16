@@ -23,7 +23,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "pull-stream": "^3.6.8",
-    "ssb-helpers": "0.0.2",
+    "ssb-helpers": "0.0.3",
     "ssb-ref": "^2.11.1"
   },
   "devDependencies": {

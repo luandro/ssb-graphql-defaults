@@ -6,6 +6,7 @@ import DefaultMessage from './ssb/message/default/type'
 import Message from './ssb/message/type'
 import PostMessage from './ssb/message/post/type'
 import User from './ssb/user/type'
+import SSBBlob from './ssb/blob/type'
 import Query from './query/type'
 import Mutation from './mutation/type'
 import Subscription from './subscription/type'
@@ -29,6 +30,7 @@ export default [
   Message,
   PostMessage,
   User,
+  SSBBlob,
   Query,
   Mutation,
   Subscription,

@@ -1,8 +1,17 @@
-import { getHistory, getId, getProfile, getChannels } from 'ssb-helpers';
+import { getHistory, getId, getAbout, getChannels, getBlob } from '../../../ssb-helpers'
 
 export default {
   channels: (_, { id }, { sbot }) => getChannels({ id }, sbot),
   history: (_, { id, sequence }, { sbot }) => getHistory({ id, sequence }, sbot),
-  profile: (_, { id }, { sbot }) => getProfile({ id }, sbot),
+  about: (_, { id }, { sbot }) => getAbout({ id }, sbot),
   whoami: (_, obj, { sbot }) => getId(sbot),
+  blob: (_, { hash }, { sbot }) => {
+    return getBlob(sbot, hash)
+      .then(blob => {
+        return {
+          id: hash,
+          stringified: JSON.stringify(blob)
+        }
+      })
+  },
 }

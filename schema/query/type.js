@@ -2,7 +2,8 @@ const Query = `
   type Query {
     channels(id: String!): [Channel]
     history(id: String! sequence: Int): [Message]
-    profile(id: String!): User
+    about(id: String): User
+    blob(hash: String): SSBBlob
     whoami: String
   }
 `

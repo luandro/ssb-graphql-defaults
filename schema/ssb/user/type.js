@@ -4,7 +4,6 @@ const User = `
     id: String!
     name: String
     image: String
-    imageBlob: String
     description: String
   }
 `
