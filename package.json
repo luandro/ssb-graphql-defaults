@@ -1,6 +1,6 @@
 {
   "name": "ssb-graphql-defaults",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Secure Scuttlebot types",
   "main": "index.js",
   "scripts": {
