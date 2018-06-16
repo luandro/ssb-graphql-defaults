@@ -1,4 +1,4 @@
-import { getHistory, getId, getAbout, getChannels, getBlob } from '../../../ssb-helpers'
+import { getHistory, getId, getAbout, getChannels, getBlob } from 'ssb-helpers'
 
 export default {
   channels: (_, { id }, { sbot }) => getChannels({ id }, sbot),
