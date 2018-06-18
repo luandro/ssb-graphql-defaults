@@ -10,7 +10,13 @@ export default {
       .then(blob => {
         return {
           id: hash,
-          stringified: JSON.stringify(blob)
+          success: true
+        }
+      })
+      .catch(err => {
+        return {
+          id: hash,
+          success: false
         }
       })
   },
