@@ -5,17 +5,14 @@ export default {
   history: (_, { id, sequence }, { sbot }) => getHistory({ id, sequence }, sbot),
   about: (_, { id }, { sbot }) => getAbout({ id }, sbot),
   whoami: (_, obj, { sbot }) => getId(sbot),
-  blob: (_, { hash }, { sbot, path }) => {
+  blob: (_, { hash }, { sbot, paths }) => {
     return getBlob(sbot, hash)
       .then(blob => {
         const formatedHash = hash.split('.sha256').shift().split('').slice(1).join('')
-        console.log('formatedHash', formatedHash)
-        const hex = new Buffer('formatedHash', 'base64').toString('hex')
-        console.log("hex", hex)
-        const dir = imageHex.substring(0,2)
-        const file = imageHex.substring(2)
-        const blobPath = `${path.ssbPath}/blobs/sha256/${dir}/${file}`
-        console.log('blobPath'. blobPath)
+        const hex = new Buffer(formatedHash, 'base64').toString('hex')
+        const dir = hex.substring(0,2)
+        const file = hex.substring(2)
+        const blobPath = `${paths.ssbPath}/blobs/sha256/${dir}/${file}`
         return {
           id: hash,
           hex,
