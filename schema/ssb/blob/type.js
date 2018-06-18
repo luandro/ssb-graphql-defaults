@@ -1,7 +1,8 @@
 const SSBBlob = `
   type SSBBlob {
     id: String!
-    stringified: String!
+    hex: String
+    path: String
   }
 `
 module.exports = () => [SSBBlob]
