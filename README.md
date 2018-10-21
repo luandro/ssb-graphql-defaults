@@ -10,13 +10,13 @@ Install it with `npm i -S ssb-graphql-defaults` and use it with your GraphQL ser
 
 ### Query
 
-##### `whoami` [x]
+##### `whoami` :x:
 Get id of the current sbot user.
 
-##### `getMessage({ id: String })` [x]
+##### `getMessage({ id: String })` :x:
 Get a message by its hash-id.
 
-##### `messagesByType ({ type: String })` [x]
+##### `messagesByType ({ type: String })` :x:
 Retrieve messages with a given type, ordered by receive-time.
 
 ##### `links ({ source: String, dest: String, rel: String })` :white_check_mark:
@@ -70,7 +70,7 @@ Add a well-formed message to the database.
 - `content` (object): The content of the message.
 - - `type` (string): The object's type.
 
-##### publishMessage ({ content: { type: String }}) [x]
+##### publishMessage ({ content: { type: String }}) :x:
 Construct a message using sbot's current user, and add it to the DB.
 
 - `content` (object): The content of the message.
