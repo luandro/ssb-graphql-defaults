@@ -13,6 +13,8 @@ Install it with `npm i -S ssb-graphql-defaults` and use it with your GraphQL ser
 ##### `whoami` :white_check_mark:
 Get id of the current sbot user.
 
+#### messages
+
 ##### `getMessage({ id: String })` :white_check_mark:
 Get a message by its hash-id.
 
@@ -38,8 +40,6 @@ Get a blob by its ID.
 ##### `hasBlob ({ id: String })` :x:
 Check if the blob of the given ID is stored in the DB.
 
-##### `removeBlob ({ id: String })` :x:
-Remove a blob from the store.
 
 ##### `listBlobs` :x:
 List the hashes of the blobs in the DB.
@@ -55,9 +55,20 @@ Callsback true if source follows dest, false otherwise.
 ##### isBlocking ({ source: String, dest: String}) :x:
 Callsback true if source blocks dest, false otherwise.
 
+#### gossip
 
+##### `peers` :x:
+Get the current peerlist.
+
+#### private
+
+##### `unbox({ ciphertext: String })` :x:
+Attempt to decrypt the content of an encrypted message.
 
 ### Mutation
+
+#### messages
+
 ##### addMessage ({ author:, sequence:, previous: timestamp:, hash: 'sha256', signature:, content: { type:, ... } }) :x:
 Add a well-formed message to the database.
 
@@ -84,30 +95,59 @@ Begin searching the network for the blob of the given hash.
 ##### `addBlob ({ source: File, id: String })` :x:
 Add a new blob to the DB.
 
+##### `removeBlob ({ id: String })` :x:
+Remove a blob from the store.
+
+#### private
+
+##### `publishPrivate({ content, recps })` :x:
+Publish an encrypted message.
+
+- `content` (object): The content of the message.
+- `recps` (array of feedids): The recipients of the message (limit 7).
+
 ### Subscription
 
-##### feedStream () :x:
+#### messages
+
+##### `feedStream` :x:
 Fetch messages ordered by their claimed timestamps
 
-##### logStream () :x:
+##### `logStream` :x:
 Fetch messages ordered by the time received.
 
-##### historyStream ({ id: String }) :x:
+##### `historyStream ({ id: String })` :x:
 Fetch messages from a specific user, ordered by sequence numbers.
 
-##### userStream ({ id: String }) :x:
+##### `userStream ({ id: String })` :x:
 Fetch messages from a specific user, ordered by sequence numbers.
 
 - `rel` (string, optional): Filters the links by the relation string.
-
-- gossip
-- progress
 
 #### blobs
 
 ##### `blobChanges` :x:
 Listen for any newly-downloaded blobs.
 
+#### friends
+
+##### `creaFriendStream({ start: String, graph:, dunbar:, hops:, meta:})` :x:
+Live-stream the ids of feeds which meet the given hops query. If meta option is set, then will return steam of {id, hops}
+
+- `start` (FeedID, default: local user): Which feed to start from.
+- `graph` (string, default: follow): Which graph to view. May be follow or flag.
+- `dunbar` (number, default: 150): Limit on how many feeds to include in the list.
+- `hops` (number, default: 3): Limit on how many hops out the feed needs to be, to be included.
+
+#### gossip
+
+##### `gossipChanges` :x:
+Listen for gossip events.
+
+#### replicate
+
+##### `replicateChanges` :x:
+Listen to replicate events.
 
 ## Other SSB plugins
 
