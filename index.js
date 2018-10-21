@@ -1,6 +1,6 @@
-const typeDefs = require('./lib/typeDefs')
-const resolvers = require('./lib/resolvers')
+const typeDefs = require('./src/typeDefs')
+const resolvers = require('./src/resolvers')
 module.exports = {
-  typeDefs: typeDefs.default,
-  resolvers: resolvers.default
+  typeDefs,
+  resolvers
 }
