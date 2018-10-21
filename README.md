@@ -49,10 +49,10 @@ List the currently-wanted blobs' data-structures.
 
 #### friends
 
-##### isFollowing ({ source: String, dest: String }) :x:
+##### `isFollowing ({ source: String, dest: String })` :x:
 Callsback true if source follows dest, false otherwise.
 
-##### isBlocking ({ source: String, dest: String}) :x:
+##### `isBlocking ({ source: String, dest: String})` :x:
 Callsback true if source blocks dest, false otherwise.
 
 #### gossip
@@ -69,7 +69,7 @@ Attempt to decrypt the content of an encrypted message.
 
 #### messages
 
-##### addMessage ({ author:, sequence:, previous: timestamp:, hash: 'sha256', signature:, content: { type:, ... } }) :x:
+##### `addMessage ({ author:, sequence:, previous: timestamp:, hash: 'sha256', signature:, content: { type:, ... } })` :x:
 Add a well-formed message to the database.
 
 - `author` (FeedID): Public key of the author of the message.
@@ -81,7 +81,7 @@ Add a well-formed message to the database.
 - `content` (object): The content of the message.
 - - `type` (string): The object's type.
 
-##### publishMessage ({ content: { type: String }}) :white_check_mark:
+##### `publishMessage ({ content: { type: String }})` :white_check_mark:
 Construct a message using sbot's current user, and add it to the DB.
 
 - `content` (object): The content of the message.
