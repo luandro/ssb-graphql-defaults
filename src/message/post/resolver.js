@@ -1,7 +1,8 @@
-import DefaultMessage from '../default/resolver';
+const defaultMessage = require('../default/resolver')
 
-export default {
-  ...DefaultMessage,
-  text: (msg) => msg.value.content.text,
-  author: (msg) => msg.value.author
-}
+module.exports = Object.assign(
+  {
+  text: (msg) => msg.content.text,
+  },
+  defaultMessage,
+)

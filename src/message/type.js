@@ -1,4 +1,5 @@
 const DefaultMessage = require('./default/type')
+const PostMessage = require('./post/type')
 
 const Message = `
   input contentInput {
@@ -16,8 +17,9 @@ const Message = `
     key: String
     sequence: Int
     timestamp: Float
-    type: String!
+    type: String
+    author: String
 }
 `
 
-module.exports = () => [ Message, DefaultMessage ]
+module.exports = () => [ Message, DefaultMessage, PostMessage ]

@@ -1,7 +1,9 @@
-import DefaultMessage from '../default/resolver';
+const defaultMessage = require('../default/resolver')
 
-export default {
-  ...DefaultMessage,
-  channel: (msg) => msg.value.content.channel,
-  subscribed: (msg) => msg.value.content.subscribed,
-}
+module.exports = Object.assign(
+  {
+    channel: (msg) => msg.value.content.channel,
+    subscribed: (msg) => msg.value.content.subscribed,
+  },
+  defaultMessage,
+)

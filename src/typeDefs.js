@@ -16,14 +16,14 @@ const Query = `
   type Query {
     whoami: String
     message(id: String!): Message
-    messagesByType(type: String!): [DefaultMessage]
+    messagesByType(type: String!): [Message]
   }
 `
 
 const Mutation = `
   type Mutation {
-    publish(input: publishInput): DefaultMessage
-    publishPost(text: String): DefaultMessage
+    publish(input: publishInput): Message
+    publishPost(text: String): Message
   }
 `
 

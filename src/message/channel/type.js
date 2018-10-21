@@ -9,4 +9,4 @@ const ChannelMessage = `
     type: String!
   }
 `
-module.exports = () => [ChannelMessage]
+module.exports = () => [ ChannelMessage ]

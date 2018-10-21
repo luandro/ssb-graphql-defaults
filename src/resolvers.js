@@ -1,5 +1,5 @@
 const { whoami } = require('./user/resolver')
-const { Message, message, messagesByType, publish, publishPost, links } = require('./message/resolver') // only default for now
+const { Message, DefaultMessage, PostMessage, message, messagesByType, publish, publishPost, links } = require('./message/resolver') // only default for now
 
 
 const Mutation = {
@@ -21,5 +21,7 @@ module.exports = {
   Query,
   Mutation,
   Message,
+  DefaultMessage,
+  PostMessage,
   // Subscription,
 }

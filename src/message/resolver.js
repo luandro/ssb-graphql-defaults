@@ -1,5 +1,6 @@
-const defaultMessage = require('./default/resolver')
 const { messagesByType, message, publish   } = require('ssb-helpers')
+const DefaultMessage = require('./default/resolver')
+const PostMessage = require('./post/resolver')
 
 const typeMap = {
   about: 'AboutMessage',
@@ -7,11 +8,21 @@ const typeMap = {
   contact: 'ContactMessage',
   post: 'PostMessage',
 }
+
+console.log
 module.exports = {
-  Message: Object.assign({ __resolveType: (obj) => typeMap[obj.value.content.type] || 'DefaultMessage' }, defaultMessage),
+  Message: {
+    __resolveType: (obj) => {
+      console.log(obj.content.type)
+      return typeMap[obj.content.type] || 'DefaultMessage'
+    }
+  },
+  DefaultMessage,
+  PostMessage,
   message: async (_, { id }, { sbot }) => {
     try {
-      const msg = await message({ id }, sbot)
+      let msg = await message({ id }, sbot)
+      msg.key = id
       return msg
     } catch (err) { throw err }
   },
