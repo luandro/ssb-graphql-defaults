@@ -1,6 +1,18 @@
-module.exports = {
-  content: (msg) => JSON.stringify(msg.value.content),
-  sequence: (msg) => msg.value.sequence,
-  timestamp: (msg) => msg.value.timestamp,
-  type: (msg) => msg.value.content.type,
+const { message } = require('ssb-helpers')
+
+module.exports = async (_, { id }, { sbot }) => {
+  console.log('default')
+  try {
+    const msg = await message({ id }, sbot)
+    return {
+      key: id,
+      content: JSON.stringify(msg.content),
+      sequence: msg.sequence,
+      timestamp: msg.timestamp,
+      type: msg.content.type,
+      author: msg.author
+    }
+  } catch (err) {
+    console.log('Error on message resolver', err)
+  }
 }

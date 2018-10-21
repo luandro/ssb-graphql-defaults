@@ -21,17 +21,6 @@ Get a message by its hash-id.
 ##### `messagesByType ({ type: String })` :white_check_mark:
 Retrieve messages with a given type, ordered by receive-time.
 
-##### `links ({ source: String, dest: String, rel: String })` :x:
-Get a stream of messages, feeds, or blobs that are linked to/from an id.
-
-- `source` (string, optional): An id or filter, specifying where the link should originate from. To filter, just use the sigil of the type you want: @ for feeds, % for messages, and & for blobs.
-- `dest` (string, optional): An id or filter, specifying where the link should point to. To filter, just use the sigil of the type you want: @ for feeds, % for messages, and & for blobs.
-
-- `rel` (string, optional): Filters the links by the relation string.
-
-##### `relatedMessages ({ id: String, rel: String })` :x:
-- `id` (MsgID): Root message, fetches messages related message to its ID.
-
 #### blobs
 
 ##### `blob ({ id: String })` :x:
@@ -81,11 +70,14 @@ Add a well-formed message to the database.
 - `content` (object): The content of the message.
 - - `type` (string): The object's type.
 
-##### `publishMessage ({ content: { type: String }})` :white_check_mark:
+##### `publish ({ content: { type: String }})` :x:
 Construct a message using sbot's current user, and add it to the DB.
 
 - `content` (object): The content of the message.
 - - `type` (string): The object's type.
+
+##### `publishPost ({ text: String })` :white_check_mark:
+Publish `post` message with text.
 
 #### blobs
 
@@ -110,19 +102,28 @@ Publish an encrypted message.
 
 #### messages
 
-##### `feedStream` :x:
+##### `feed` :x:
 Fetch messages ordered by their claimed timestamps
 
-##### `logStream` :x:
+##### `log` :x:
 Fetch messages ordered by the time received.
 
-##### `historyStream ({ id: String })` :x:
+##### `history ({ id: String })` :x:
 Fetch messages from a specific user, ordered by sequence numbers.
 
-##### `userStream ({ id: String })` :x:
+##### `user ({ id: String })` :x:
 Fetch messages from a specific user, ordered by sequence numbers.
 
 - `rel` (string, optional): Filters the links by the relation string.
+
+##### `links ({ source: String, dest: String, rel: String })` :x:
+Get a stream of messages, feeds, or blobs that are linked to/from an id.
+
+- `source` (string, optional): An id or filter, specifying where the link should originate from. To filter, just use the sigil of the type you want: @ for feeds, % for messages, and & for blobs.
+- `dest` (string, optional): An id or filter, specifying where the link should point to. To filter, just use the sigil of the type you want: @ for feeds, % for messages, and & for blobs.
+
+- `rel` (string, optional): Filters the links by the relation string.
+
 
 #### blobs
 
