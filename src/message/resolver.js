@@ -8,8 +8,12 @@ const typeMap = {
   post: 'PostMessage',
 }
 module.exports = {
-  message: {
-    __resolveType: (obj) => {}
+  Message: Object.assign({ __resolveType: (obj) => typeMap[obj.value.content.type] || 'DefaultMessage' }, defaultMessage),
+  message: async (_, { id }, { sbot }) => {
+    try {
+      const msg = await message({ id }, sbot)
+      return msg
+    } catch (err) { throw err }
   },
   messagesByType: async (_, { type }, { sbot }) => {
     try {

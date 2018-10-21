@@ -15,7 +15,7 @@ const Message = require('./message/type') // only default for now
 const Query = `
   type Query {
     whoami: String
-    message(id: String!): DefaultMessage
+    message(id: String!): Message
     messagesByType(type: String!): [DefaultMessage]
   }
 `

@@ -1,5 +1,5 @@
 const DefaultMessage = `
-  type DefaultMessage {
+  type DefaultMessage implements Message {
     content: String
     key: String!
     sequence: Int!
