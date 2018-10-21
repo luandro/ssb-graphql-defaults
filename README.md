@@ -62,7 +62,7 @@ Get the current peerlist.
 
 #### private
 
-##### `unbox({ ciphertext: String })` :x:
+##### `unboxPrivate ({ ciphertext: String })` :x:
 Attempt to decrypt the content of an encrypted message.
 
 ### Mutation

@@ -7,4 +7,4 @@ const DefaultMessage = `
     type: String!
   }
 `
-module.exports = () => [DefaultMessage]
+module.exports = () => [ DefaultMessage ]

@@ -38,10 +38,28 @@
 //   Progress,
 //   Schema,
 // ]
+const Message = require('./message/type')
+const Mutation = `
+`
+// messagesByType
+// links
+// relatedMessages
+// blob
+// hasBlob
+// listBlobs
+// wantsBlob
+// isFollowing
+// isBlocking
+// peers
+// unboxPrivate
+// getMessage(id: String!): Message
 
-const whoami = {
-
-}
+const Query = `
+  type Query {
+    whoami: String
+    message(id: String!): Message
+  }
+`
 
 const Schema = () => [`
   schema {
@@ -52,4 +70,5 @@ const Schema = () => [`
 module.exports = [
   Schema,
   Query,
+  Message,
 ]
