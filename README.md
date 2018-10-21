@@ -10,16 +10,16 @@ Install it with `npm i -S ssb-graphql-defaults` and use it with your GraphQL ser
 
 ### Query
 
-##### `whoami` :x:
+##### `whoami` :white_check_mark:
 Get id of the current sbot user.
 
-##### `getMessage({ id: String })` :x:
+##### `getMessage({ id: String })` :white_check_mark:
 Get a message by its hash-id.
 
-##### `messagesByType ({ type: String })` :x:
+##### `messagesByType ({ type: String })` :white_check_mark:
 Retrieve messages with a given type, ordered by receive-time.
 
-##### `links ({ source: String, dest: String, rel: String })` :white_check_mark:
+##### `links ({ source: String, dest: String, rel: String })` :x:
 Get a stream of messages, feeds, or blobs that are linked to/from an id.
 
 - `source` (string, optional): An id or filter, specifying where the link should originate from. To filter, just use the sigil of the type you want: @ for feeds, % for messages, and & for blobs.
@@ -27,38 +27,38 @@ Get a stream of messages, feeds, or blobs that are linked to/from an id.
 
 - `rel` (string, optional): Filters the links by the relation string.
 
-##### `relatedMessages ({ id: String, rel: String })` :white_check_mark:
+##### `relatedMessages ({ id: String, rel: String })` :x:
 - `id` (MsgID): Root message, fetches messages related message to its ID.
 
 #### blobs
 
-##### `blob ({ id: String })` :white_check_mark:
+##### `blob ({ id: String })` :x:
 Get a blob by its ID.
 
-##### `hasBlob ({ id: String })` :white_check_mark:
+##### `hasBlob ({ id: String })` :x:
 Check if the blob of the given ID is stored in the DB.
 
-##### `removeBlob ({ id: String })` :white_check_mark:
+##### `removeBlob ({ id: String })` :x:
 Remove a blob from the store.
 
-##### `listBlobs` :white_check_mark:
+##### `listBlobs` :x:
 List the hashes of the blobs in the DB.
 
-##### `wantsBlob ({ id: String })` :white_check_mark:
+##### `wantsBlob ({ id: String })` :x:
 List the currently-wanted blobs' data-structures.
 
 #### friends
 
-##### isFollowing ({ source: String, dest: String }) :white_check_mark:
+##### isFollowing ({ source: String, dest: String }) :x:
 Callsback true if source follows dest, false otherwise.
 
-##### isBlocking ({ source: String, dest: String}) :white_check_mark:
+##### isBlocking ({ source: String, dest: String}) :x:
 Callsback true if source blocks dest, false otherwise.
 
 
 
 ### Mutation
-##### addMessage ({ author:, sequence:, previous: timestamp:, hash: 'sha256', signature:, content: { type:, ... } }) :white_check_mark:
+##### addMessage ({ author:, sequence:, previous: timestamp:, hash: 'sha256', signature:, content: { type:, ... } }) :x:
 Add a well-formed message to the database.
 
 - `author` (FeedID): Public key of the author of the message.
@@ -70,7 +70,7 @@ Add a well-formed message to the database.
 - `content` (object): The content of the message.
 - - `type` (string): The object's type.
 
-##### publishMessage ({ content: { type: String }}) :x:
+##### publishMessage ({ content: { type: String }}) :white_check_mark:
 Construct a message using sbot's current user, and add it to the DB.
 
 - `content` (object): The content of the message.
@@ -78,24 +78,24 @@ Construct a message using sbot's current user, and add it to the DB.
 
 #### blobs
 
-##### `wantBlob ({ id: String })` :white_check_mark:
+##### `wantBlob ({ id: String })` :x:
 Begin searching the network for the blob of the given hash.
 
-##### `addBlob ({ source: File, id: String })` :white_check_mark:
+##### `addBlob ({ source: File, id: String })` :x:
 Add a new blob to the DB.
 
 ### Subscription
 
-##### feedStream () :white_check_mark:
+##### feedStream () :x:
 Fetch messages ordered by their claimed timestamps
 
-##### logStream () :white_check_mark:
+##### logStream () :x:
 Fetch messages ordered by the time received.
 
-##### historyStream ({ id: String }) :white_check_mark:
+##### historyStream ({ id: String }) :x:
 Fetch messages from a specific user, ordered by sequence numbers.
 
-##### userStream ({ id: String }) :white_check_mark:
+##### userStream ({ id: String }) :x:
 Fetch messages from a specific user, ordered by sequence numbers.
 
 - `rel` (string, optional): Filters the links by the relation string.
@@ -105,14 +105,14 @@ Fetch messages from a specific user, ordered by sequence numbers.
 
 #### blobs
 
-##### `blobChanges` :white_check_mark:
+##### `blobChanges` :x:
 Listen for any newly-downloaded blobs.
 
 
 ## Other SSB plugins
 
-- https://github.com/ssbc/ssb-backlinks :white_check_mark:
-- https://github.com/ssbc/ssb-threads :white_check_mark:
-- https://github.com/dominictarr/ssb-query :white_check_mark:
-- https://github.com/ssbc/ssb-contacts :white_check_mark:
-- https://github.com/ssbc/ssb-private :white_check_mark:
+- https://github.com/ssbc/ssb-backlinks :x:
+- https://github.com/ssbc/ssb-threads :x:
+- https://github.com/dominictarr/ssb-query :x:
+- https://github.com/ssbc/ssb-contacts :x:
+- https://github.com/ssbc/ssb-private :x:
