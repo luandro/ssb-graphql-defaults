@@ -1,5 +1,7 @@
 const DefaultMessage = require('./default/type')
 const PostMessage = require('./post/type')
+const AboutMessage = require('./about/type')
+const ChannelMessage = require('./channel/type')
 
 const Message = `
   input contentInput {
@@ -22,4 +24,4 @@ const Message = `
 }
 `
 
-module.exports = () => [ Message, DefaultMessage, PostMessage ]
+module.exports = () => [ Message, DefaultMessage, PostMessage, AboutMessage, ChannelMessage ]

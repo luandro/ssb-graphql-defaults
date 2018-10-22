@@ -18,17 +18,14 @@ Get id of the current sbot user.
 ##### `getMessage({ id: String })` :white_check_mark:
 Get a message by its hash-id.
 
-##### `messagesByType ({ type: String })` :white_check_mark:
-Retrieve messages with a given type, ordered by receive-time.
 
 #### blobs
 
-##### `blob ({ id: String })` :x:
+##### `blob ({ id: String })` :white_check_mark:
 Get a blob by its ID.
 
 ##### `hasBlob ({ id: String })` :x:
 Check if the blob of the given ID is stored in the DB.
-
 
 ##### `listBlobs` :x:
 List the hashes of the blobs in the DB.
@@ -102,6 +99,9 @@ Publish an encrypted message.
 
 #### messages
 
+##### `messagesByType ({ type: String })` :x:
+Retrieve messages with a given type, ordered by receive-time.
+
 ##### `feed` :x:
 Fetch messages ordered by their claimed timestamps
 
@@ -142,12 +142,12 @@ Live-stream the ids of feeds which meet the given hops query. If meta option is 
 
 #### gossip
 
-##### `gossipChanges` :x:
+##### `gossip` :white_check_mark:
 Listen for gossip events.
 
 #### replicate
 
-##### `replicateChanges` :x:
+##### `replicate` :white_check_mark:
 Listen to replicate events.
 
 ## Other SSB plugins

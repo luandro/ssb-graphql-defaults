@@ -6,6 +6,7 @@ const AboutMessage = `
     sequence: Int!
     timestamp: Float!
     type: String!
+    author: String
   }
 `
-module.exports = () => [AboutMessage]
+module.exports = () => [ AboutMessage ]

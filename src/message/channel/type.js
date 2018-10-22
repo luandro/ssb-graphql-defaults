@@ -7,6 +7,7 @@ const ChannelMessage = `
     subscribed: Boolean!
     timestamp: Float!
     type: String!
+    author: String
   }
 `
 module.exports = () => [ ChannelMessage ]
