@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "pull-stream": "^3.6.9",
-    "ssb-helpers": "file:../ssb-helpers",
+    "ssb-helpers": "^1.0.0",
     "ssb-ref": "^2.12.0"
   },
   "devDependencies": {

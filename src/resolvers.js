@@ -9,7 +9,7 @@ const {
   links
 } = require('./message/resolver') // only default for now
 const { messagesByType, log, feed, history } = require('./message/streams/resolver')
-const { messagesByType, log, feed, history } = require('./message/private/resolver')
+const { unbox, publishPrivate, publishPrivatePost } = require('./message/private/resolver')
 const { replication } = require('./replication/resolver')
 const { peers, gossip } = require('./gossip/resolver')
 const { blob, blobRemove, blobsList, blobsChanges } = require('./blobs/resolver')
@@ -28,6 +28,8 @@ const Mutation = {
   publishPrivate,
   publishPrivatePost,
   blobRemove,
+  publishPrivate,
+  publishPrivatePost,
 }
 
 const Subscription = {

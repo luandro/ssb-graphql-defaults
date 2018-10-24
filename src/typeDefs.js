@@ -16,6 +16,7 @@ const Query = `
     message(id: String!): Message
     blob(hash: String): Blob
     peers: [Peer]
+    unbox: Message
   }
 `
 
@@ -24,6 +25,8 @@ const Mutation = `
     publish(input: publishInput): Message
     publishPost(text: String): Message
     blobRemove(hash: String): Blob
+    publishPrivate(content: String recipients: [String]): Message
+    publishPrivatePost(text: String recipients: [String]): Message
   }
 `
 
