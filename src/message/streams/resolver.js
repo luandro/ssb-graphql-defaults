@@ -11,7 +11,7 @@ module.exports = {
     subscribe: (parent, args, { pubsub, sbot }) => {
       const { type } = args
       const channel = 'messagesByType'
-      messagesByType({id, sequence}, sbot, pubsub, channel)
+      messagesByType({ type }, sbot, pubsub, channel)
       return pubsub.asyncIterator(channel)
     },
   },

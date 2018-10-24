@@ -1,5 +1,5 @@
 const ChannelMessage = `
-  type ChannelMessage implements Message {
+  type ChannelMessage {
     channel: String!
     content: String
     key: String!

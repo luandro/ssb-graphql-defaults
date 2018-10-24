@@ -10,28 +10,32 @@ Install it with `npm i -S ssb-graphql-defaults` and use it with your GraphQL ser
 
 ### Query
 
-##### `whoami` :white_check_mark:
+##### `whoami`
 Get id of the current sbot user.
 
 #### messages
 
-##### `getMessage({ id: String })` :white_check_mark:
-Get a message by its hash-id.
-
+##### `message({ id: String })`
+Get a message by its hash-id. Use fragments to get the content of specific messages such as a `post`:
+```
+query {
+  message(id: "%NgcMlAco0ZKI8lIteD/LRJMHKhFZrQxJvUrXaFmEIcQ=.sha256") {
+    key
+    author
+    ... on PostMessage {
+      content {
+        type
+        text
+      }
+    }
+  }
+}
+```
 
 #### blobs
 
-##### `blob ({ id: String })` :white_check_mark:
+##### `blob ({ id: String })`
 Get a blob by its ID.
-
-##### `hasBlob ({ id: String })` :x:
-Check if the blob of the given ID is stored in the DB.
-
-##### `listBlobs` :x:
-List the hashes of the blobs in the DB.
-
-##### `wantsBlob ({ id: String })` :x:
-List the currently-wanted blobs' data-structures.
 
 #### friends
 
@@ -43,12 +47,12 @@ Callsback true if source blocks dest, false otherwise.
 
 #### gossip
 
-##### `peers` :x:
+##### `peers`
 Get the current peerlist.
 
 #### private
 
-##### `unboxPrivate ({ ciphertext: String })` :x:
+##### `unbox ({ ciphertext: String })` :x:
 Attempt to decrypt the content of an encrypted message.
 
 ### Mutation
@@ -73,7 +77,7 @@ Construct a message using sbot's current user, and add it to the DB.
 - `content` (object): The content of the message.
 - - `type` (string): The object's type.
 
-##### `publishPost ({ text: String })` :white_check_mark:
+##### `publishPost ({ text: String })`
 Publish `post` message with text.
 
 #### blobs
@@ -127,6 +131,9 @@ Get a stream of messages, feeds, or blobs that are linked to/from an id.
 
 #### blobs
 
+##### `listBlobs` :x:
+List the hashes of the blobs in the DB.
+
 ##### `blobChanges` :x:
 Listen for any newly-downloaded blobs.
 
@@ -142,12 +149,12 @@ Live-stream the ids of feeds which meet the given hops query. If meta option is 
 
 #### gossip
 
-##### `gossip` :white_check_mark:
+##### `gossip`
 Listen for gossip events.
 
 #### replicate
 
-##### `replicate` :white_check_mark:
+##### `replicate`
 Listen to replicate events.
 
 ## Other SSB plugins

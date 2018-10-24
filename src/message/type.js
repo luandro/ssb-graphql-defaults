@@ -4,24 +4,23 @@ const AboutMessage = require('./about/type')
 const ChannelMessage = require('./channel/type')
 
 const Message = `
-  input contentInput {
-    type: String!
-    data: String
-  }
   input publishInput {
-    content: contentInput
-  }
-  type Link {
-    key: String
+    content: String
+    type: String!
   }
   interface Message {
-    content: String
-    key: String
+    key: ID
     sequence: Int
     timestamp: Float
     type: String
     author: String
-}
+  }
 `
 
-module.exports = () => [ Message, DefaultMessage, PostMessage, AboutMessage, ChannelMessage ]
+module.exports = () => [
+  Message,
+  DefaultMessage,
+  PostMessage,
+  AboutMessage,
+  ChannelMessage
+]

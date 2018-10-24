@@ -1,9 +1,9 @@
-const PostMessage = `
+const PrivateMessage = `
   type PostContent {
     type: String
     text: String
   }
-  type PostMessage implements Message {
+  type PrivateMessage implements Message {
     content: PostContent
     key: ID
     sequence: Int
@@ -13,4 +13,4 @@ const PostMessage = `
     author: String
   }
 `
-module.exports = () => [PostMessage]
+module.exports = () => [PrivateMessage]

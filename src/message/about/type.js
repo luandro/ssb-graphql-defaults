@@ -1,5 +1,5 @@
 const AboutMessage = `
-  type AboutMessage implements Message {
+  type AboutMessage {
     content: String
     key: String!
     name: String

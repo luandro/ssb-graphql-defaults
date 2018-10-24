@@ -1,11 +1,11 @@
 {
   "name": "ssb-graphql-defaults",
   "version": "2.0.0",
-  "description": "Secure Scuttlebot types",
+  "description": "Secure Scuttlebot types for Open App GraphQL Server",
   "main": "index.js",
   "scripts": {
     "push": "git push origin master && git push --tags ssb master",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/index.test.js | tap-spec"
   },
   "keywords": [
     "ssb",
@@ -21,5 +21,10 @@
     "pull-stream": "^3.6.9",
     "ssb-helpers": "file:../ssb-helpers",
     "ssb-ref": "^2.12.0"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.2.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
   }
 }

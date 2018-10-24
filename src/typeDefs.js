@@ -1,29 +1,29 @@
-const DefaultMessage = require('./message/default/type') // only default for now
-const Message = require('./message/type') // only default for now
+const DefaultMessage = require('./message/default/type')
+const Message = require('./message/type')
 const Replication = require('./replication/type')
 const Gossip = require('./gossip/type')
 const Blob = require('./blobs/type')
 
+// TODO:
 // hasBlob
-// listBlobs
-// wantsBlob
 // isFollowing
 // isBlocking
 // unboxPrivate
-// getMessage(id: String!): Message
 
 const Query = `
   type Query {
     whoami: String
     message(id: String!): Message
     blob(hash: String): Blob
+    peers: [Peer]
   }
 `
 
 const Mutation = `
   type Mutation {
     publish(input: publishInput): Message
-    publishPost(text: String): PostMessage
+    publishPost(text: String): Message
+    blobRemove(hash: String): Blob
   }
 `
 
@@ -38,6 +38,8 @@ const Subscription = `
     history(id: String! sequence: Int): Message
     feed: Message
     log: Message
+    blobsList: Blob
+    blobsChanges: Blob
     replication: Replication
     gossip: Gossip
   }

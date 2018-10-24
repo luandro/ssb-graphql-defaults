@@ -1,19 +1,33 @@
 const { whoami } = require('./user/resolver')
-const { Message, DefaultMessage, PostMessage, message, publish, publishPost, links } = require('./message/resolver') // only default for now
-const { messagesByType, log, feed, history } = require('./message/streams/resolver')
-const { replication } = require('./replication/resolver')
-const { gossip } = require('./gossip/resolver')
-const { blob } = require('./blobs/resolver')
-
-const Mutation = {
+const {
+  Message,
+  DefaultMessage,
+  PostMessage,
+  message,
   publish,
   publishPost,
-}
+  links
+} = require('./message/resolver') // only default for now
+const { messagesByType, log, feed, history } = require('./message/streams/resolver')
+const { messagesByType, log, feed, history } = require('./message/private/resolver')
+const { replication } = require('./replication/resolver')
+const { peers, gossip } = require('./gossip/resolver')
+const { blob, blobRemove, blobsList, blobsChanges } = require('./blobs/resolver')
 
 const Query = {
   whoami,
   message,
   blob,
+  peers,
+  unbox,
+}
+
+const Mutation = {
+  publish,
+  publishPost,
+  publishPrivate,
+  publishPrivatePost,
+  blobRemove,
 }
 
 const Subscription = {
@@ -21,6 +35,8 @@ const Subscription = {
   feed,
   history,
   log,
+  blobsList,
+  blobsChanges,
   replication,
   gossip,
 }
@@ -28,8 +44,8 @@ const Subscription = {
 module.exports = {
   Query,
   Mutation,
+  Subscription,
   Message,
   DefaultMessage,
   PostMessage,
-  Subscription,
 }

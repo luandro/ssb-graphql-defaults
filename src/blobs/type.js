@@ -1,8 +1,8 @@
 const Blob = `
   type Blob {
-    id: String!
+    key: String!
     hex: String
     path: String
   }
 `
-module.exports = () => [Blob]
+module.exports = () => [ Blob ]

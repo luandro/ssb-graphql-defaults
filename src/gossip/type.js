@@ -11,7 +11,7 @@ const Gossip=`
     port: Int
     key: String
     source: String
-    state: String!
+    state: String
     announcers: Int
     duration: Duration
     stateChange: Int
