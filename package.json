@@ -1,6 +1,6 @@
 {
   "name": "ssb-graphql-defaults",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Secure Scuttlebot types for Open App GraphQL Server",
   "main": "index.js",
   "scripts": {
