@@ -11,6 +11,10 @@ const PostMessage = `
     timestamp: Float
     type: String
     author: String
+    root: String
+    branch: String
+    revisionRoot: String
+    revisionBranch: String
   }
 `
 module.exports = () => [PostMessage]
