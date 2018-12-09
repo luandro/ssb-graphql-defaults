@@ -19,7 +19,7 @@ const Query = {
   message,
   blob,
   peers,
-  unbox,
+  unbox
 }
 
 const Mutation = {
@@ -29,7 +29,7 @@ const Mutation = {
   publishPrivatePost,
   blobRemove,
   publishPrivate,
-  publishPrivatePost,
+  publishPrivatePost
 }
 
 const Subscription = {
@@ -40,7 +40,7 @@ const Subscription = {
   blobsList,
   blobsChanges,
   replication,
-  gossip,
+  gossip
 }
 
 module.exports = {
@@ -49,5 +49,5 @@ module.exports = {
   Subscription,
   Message,
   DefaultMessage,
-  PostMessage,
+  PostMessage
 }
