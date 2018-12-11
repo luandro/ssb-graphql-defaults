@@ -1,5 +1,7 @@
 const DefaultMessage = require('./message/default/type')
 const Message = require('./message/type')
+const Revisions = require('./revisions/type')
+const SsbThreads = require('./threads/type')
 const Replication = require('./replication/type')
 const Gossip = require('./gossip/type')
 const Blob = require('./blobs/type')
@@ -14,6 +16,9 @@ const Query = `
   type Query {
     whoami: String
     message(id: String!): Message
+    revisionStats: RevisionStats
+    revisionHistory(id: String!): [PostMessage]
+    threads(id: String!): [Thread]
     blob(hash: String): Blob
     peers: [Peer]
     unbox: Message
@@ -63,6 +68,8 @@ module.exports = [
   Subscription,
   DefaultMessage,
   Message,
+  Revisions,
+  SsbThreads,
   Blob,
   Replication,
   Gossip,
