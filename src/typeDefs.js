@@ -18,7 +18,8 @@ const Query = `
     message(id: String!): Message
     revisionStats: RevisionStats
     revisionHistory(id: String!): [PostMessage]
-    threads(id: String!): [Thread]
+    threads(id: String reverse: Boolean limit: Int threadMaxSize: Int allowlist: [String] blocklist: [String]): [Thread]
+    thread(id: String! reverse: Boolean limit: Int threadMaxSize: Int allowlist: [String] blocklist: [String]): [Thread]
     blob(hash: String): Blob
     peers: [Peer]
     unbox: Message

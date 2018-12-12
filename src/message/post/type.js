@@ -12,7 +12,7 @@ const PostMessage = `
     type: String
     author: String
     root: String
-    branch: String
+    branch: [String]
     revisionRoot: String
     revisionBranch: String
   }
