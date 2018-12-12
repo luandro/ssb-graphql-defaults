@@ -19,7 +19,7 @@ const Query = `
     revisionStats: RevisionStats
     revisionHistory(id: String!): [PostMessage]
     threads(id: String reverse: Boolean limit: Int threadMaxSize: Int allowlist: [String] blocklist: [String]): [Thread]
-    thread(id: String! reverse: Boolean limit: Int threadMaxSize: Int allowlist: [String] blocklist: [String]): [Thread]
+    thread(id: String! threadMaxSize: Int): [Thread]
     blob(hash: String): Blob
     peers: [Peer]
     unbox: Message

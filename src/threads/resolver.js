@@ -26,8 +26,9 @@ module.exports = {
     
   }),
   thread: (_, opts, {sbot}) => new Promise((resolve, reject) => {
+    opts.root = opts.id
     pull(
-      sbot.threads.thread({root: opts.id}),
+      sbot.threads.thread(opts),
       pull.collect(function(err, msgs) {
         if(err) { reject(err) }
         else {
