@@ -5,7 +5,11 @@ module.exports = {
     type: (msg) => msg.value.content.type,
     text: (msg) => msg.value.content.text,
     root: (msg) => msg.value.content.root,
-    branch: (msg) => msg.value.content.branch,
+    branch: (msg) => {
+      const branch = msg.value.content.branch
+      if(typeof branch === 'string' || branch instanceof String) { return [branch] }
+      return branch
+    },
     revisionRoot: (msg) => msg.value.content.revisionRoot,
     revisionBranch: (msg) => msg.value.content.revisionBranch,
     key: (msg) => msg.key,
